@@ -5,7 +5,10 @@
   "description": "Property",
   "scripts": {
     "start": "node server.js",
-    "test": "node ace test --timeout=0"
+    "test": "node ace test --timeout=0",
+    "build": "adonis bundle",
+    "build:dev": "adonis bundle --watch",
+    "build:prod": "adonis bundle --production"
   },
   "engines": {
       "node": "8.5.0"
