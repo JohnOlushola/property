@@ -1,17 +1,99 @@
 @layout('layout.app')
 
 @section('content')
-  @set('title', 'Blog Demo')
+  @set('title', 'Home')
 
-  {{--
-    Looping over all posts.
+  <main role="main" class="inner cover text-center mt-5 rounded">
+      <div class="landing mx-auto">
+          <h1 class="display-2">Find any Property</h1>
+          <p class="lead">Property is a one-stop destination for all categories of properties with simple, user-friendly and beautiful interface. Search, buy properties, or add your own properties, we've got you covered.</p>
+          
+          <form class="lead mx-auto" action="/property/search" method="POST">
+              <div class="input-group mt-5 mb-2">
+                <input type="text" class="form-control p-3" placeholder="Search for a property" aria-label="Property name, type or address" aria-describedby="button-addon4" name="query">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+              </div>
+              <div class="input-group float-right">
+                <div class="input-group-prepend">
+                  <select class="form-control mr-3" name="type" id="inputGroupSelect01">
+                    <option>Commercial</option>
+                    <option>Residential</option>
+                  </select>
+                </div>
 
-    ref: http://edge.adonisjs.com/docs/iteration
-    --}}
-  @each(post in posts, include = 'posts.partials.post-card')
-  @else
-    @component('components.alert', { color: 'info' })
-      <p class="text-sm">There's no post available!</p>
-    @endcomponent
-  @endeach
+                <div class="input-group-append">
+                  <select class="form-control" name="maxPrice" id="inputGroupSelect02">
+                    <option value="300000">300,000</option>
+                    <option value="500000">500,000</option>
+                    <option value="1000000">1,000,000</option>
+                    <option value="5000000">5,000,000</option>
+                    <option value="max">Max</option>
+                  </select>
+                </div>
+              </div>
+          </form>
+
+          <div class="cat-nav rounded">
+            <hr class="mt-5">
+
+            <ul class="nav nav-pills nav-fill ">
+              <li class="nav-item">
+                <a class="nav-link" href="/property/category/residential"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Residential</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/property/category/commercial"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Commercial</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" aria-disabled="true"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Luxury</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Business</a>
+              </li>
+            </ul>
+  
+            <hr class="">
+          </div>
+      </div>
+  </main>
+
+  <h4 class="p-4 text-left home-h">Verified Agents<span class="float-right"><a href="#" class=""><small>View All</small></a></span></h4>
+  <div class="card-deck">
+    @each(user in users)
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{user.fullname}}</h5>
+          <p class="card-text">{{user.description}}. This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text"><small class="text-muted">{{user.email}}</small></p>
+        </div>
+      </div>
+    @endeach
+  </div>
+
+  {{--  Properties  --}}
+  <div class="container mt-2">
+    <h4 class="mt-5 p-4 text-left home-h">Recent Listings<span class="float-right"><a href="#" class=""><small>View All</small></a></span></h4>
+    <div class="card-deck">
+        @each(property in properties)
+        <div class="card" style="">
+          <img src="cover.jpg" class="card-img-top" height="250" alt="...">
+          <div class="card-body">
+          <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-info">{{property.price}}</span></a></h5>
+          <p class="card-text">{{property.propertyDescription}}</p>
+          <p class="card-text text-danger m-0">For {{property.purpose}}</p>
+          <p class="card-text"><small class="text-muted">{{property.address}}</small></p>
+          </div>
+        </div>
+        @endeach
+    </div>
+  </div>
+
+  <h4 class="mt-5 p-2 text-left home-h">Properties around you</h4>
+  <div id="map" style="height: 600px;"></div>
+  {{--  <iframe width="100%" height="600" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJy4cQ6-4NOxAR6JxAUS_YZ64&key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0" allowfullscreen></iframe>  --}}
+  {{ script('/maps.js') }}
+  <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0&callback=initMap">
+      </script>
 @endsection

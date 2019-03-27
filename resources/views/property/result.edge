@@ -1,0 +1,38 @@
+@layout('layout.app')
+
+@section('content')
+  @set('title', 'Search Results')
+        @if(results.length > 0)
+            <h1>Search results for "{{query}}"</h1>
+            <hr>
+            <h4 class="mt-2 p-2 text-left home-h">Results</h4>
+            <div class="card-deck">
+                @each(result in results)
+                <div class="card" style="max-width: 18rem">
+                    <img src="/cover.jpg" class="card-img-top" height="250" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title"><a href="/property/{{result.id}}/view">{{result.propertyName}}  <span class="badge badge-info">{{property.price}}</span></a></h5>
+                    <p class="card-text">{{result.propertyDescription}}</p>
+                    <p class="card-text text-danger m-0">For {{result.purpose}}</p>
+                    <p class="card-text"><small class="text-muted">{{result.address}}</small></p>
+                    </div>
+                    </div>
+                @endeach
+            </div>
+
+            <h4 class="mt-5 p-2 text-left home-h">Map results</h4>
+            <div id="map" style="height: 600px;"></div>
+            {{ script('/maps.js') }}
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0&callback=initMap">
+                </script>
+        @else
+        <div class="jumbotron">
+                <h1 class="display-3">Uh!!</h1>
+                <hr>
+                <h5 class="display-4">No results found for "{{query}}"</h5>
+                <p class="">We can't find any property that matches your preferences</p>
+        </div>
+        @endif
+
+@endsection

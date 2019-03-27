@@ -13,7 +13,7 @@ test('we can register a new user', async ({ assert, browser }) => {
 
   // When we fill and send the login form
   await page
-    .type('[name="username"]', 'romain.lanz')
+    .type('[name="fullname"]', 'romain.lanz')
     .type('[name="email"]', 'romain.lanz@slynova.ch')
     .type('[name="password"]', 'secret')
     .type('[name="password_confirmation"]', 'secret')
@@ -24,7 +24,7 @@ test('we can register a new user', async ({ assert, browser }) => {
   await page.assertPath('/')
 
   // And to have a user into the database
-  const user = await User.findBy('username', 'romain.lanz')
+  const user = await User.findBy('fullname', 'romain.lanz')
   assert.isNotNull(user)
 }).timeout(0)
 
@@ -34,7 +34,7 @@ test('we need to provide a valid email', async ({ assert, browser }) => {
 
   // When we fill and send the login form
   await page
-    .type('[name="username"]', 'romain.lanz')
+    .type('[name="fullname"]', 'romain.lanz')
     .type('[name="email"]', 'romain.lanz')
     .type('[name="password"]', 'secret')
     .type('[name="password_confirmation"]', 'secret')
@@ -44,8 +44,8 @@ test('we need to provide a valid email', async ({ assert, browser }) => {
   // We expect to be again on the register page
   await page.assertPath('/register')
 
-  // And to see the username filled
-  await page.assertValue('[name="username"]', 'romain.lanz')
+  // And to see the fullname filled
+  await page.assertValue('[name="fullname"]', 'romain.lanz')
 
   // And to see the email filled
   await page.assertValue('[name="email"]', 'romain.lanz')
@@ -60,7 +60,7 @@ test('we need to provide a identical password', async ({ assert, browser }) => {
 
   // When we fill and send the login form
   await page
-    .type('[name="username"]', 'romain.lanz')
+    .type('[name="fullname"]', 'romain.lanz')
     .type('[name="email"]', 'romain.lanz@slynova.ch')
     .type('[name="password"]', 'secret')
     .type('[name="password_confirmation"]', 'secret2')
@@ -70,8 +70,8 @@ test('we need to provide a identical password', async ({ assert, browser }) => {
   // We expect to be again on the register page
   await page.assertPath('/register')
 
-  // And to see the username filled
-  await page.assertValue('[name="username"]', 'romain.lanz')
+  // And to see the fullname filled
+  await page.assertValue('[name="fullname"]', 'romain.lanz')
 
   // And to see the email filled
   await page.assertValue('[name="email"]', 'romain.lanz@slynova.ch')
@@ -80,7 +80,7 @@ test('we need to provide a identical password', async ({ assert, browser }) => {
   await page.assertExists('small.text-xs')
 })
 
-test('we cannot have two same username', async ({ assert, browser }) => {
+test('we cannot have two same fullname', async ({ assert, browser }) => {
   // Given we have a user
   const user = await Factory.model('App/Models/User').create()
 
@@ -89,7 +89,7 @@ test('we cannot have two same username', async ({ assert, browser }) => {
 
   // When we fill and send the login form
   await page
-    .type('[name="username"]', user.username)
+    .type('[name="fullname"]', user.fullname)
     .type('[name="email"]', user.email)
     .type('[name="password"]', 'secret')
     .type('[name="password_confirmation"]', 'secret')
@@ -99,8 +99,8 @@ test('we cannot have two same username', async ({ assert, browser }) => {
   // We expect to be again on the register page
   await page.assertPath('/register')
 
-  // And to see the username filled
-  await page.assertValue('[name="username"]', user.username)
+  // And to see the fullname filled
+  await page.assertValue('[name="fullname"]', user.fullname)
 
   // And to see the email filled
   await page.assertValue('[name="email"]', user.email)

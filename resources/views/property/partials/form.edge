@@ -1,0 +1,254 @@
+{{--
+  AdonisJs provides CSRF Protection by default.
+  This mean that we need to send a csrf token for every POST, PUT or DELETE request.
+
+  ref: http://adonisjs.com/docs/4.0/csrf
+  --}}
+{{ csrfField() }}
+<form  class="w-75" action="/property/create" method="POST">
+    @if(flashMessage('error'))
+      @component('components.alert', { type: 'danger', dismissible: true })
+        {{ flashMessage('error') }}
+      @endcomponent
+    @endif
+
+    <input type="text" name="lat" hidden> 
+    <input type="text" name="long" hidden> 
+    <h4 class="text-primary mb-2">Property Information</h4>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="propertName">Property name</label>
+        <input type="text" class="form-control" id="propertName" placeholder="5 Bedroom duplex" name="propertyName">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="propertySize">Property Size</label>
+        <input type="text" class="form-control" id="propertySize" placeholder="3 acres" name="propertySize">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Property Description</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="propertyDescription"></textarea>
+    </div>
+
+    <div class="form-group right-panel">
+      <label for="address">Address</label>
+      <input type="text" class="form-control controls" id="pac-input" placeholder="1234 Main St" name="address" value="" autocomplete>
+    </div>
+    <div class="form-row mb-4">
+      <div class="col-md-6">
+          <label for="propertyType">Property type</label>
+          <select class="form-control" id="propertyType" name="propertyType">
+            <option value="Residential">Residential</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Luxury">Luxury</option>
+            <option value="Business">Business</option>
+          </select>
+      </div>
+      <div class="col-md-2">
+          <label for="purpose">Purpose</label>
+          <select class="form-control" id="purpose" name="purpose">
+            <option value="Rent">Rent</option>
+            <option value="Sale">Sale</option>
+            <option value="Short Let">Short Let</option>
+          </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity" name="city">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select id="inputState" class="form-control" name="state">
+          <option selected></option>
+          <option value="abia">Abia</option>
+          <option value="Adamawa">Adamawa</option>
+          <option value="Akwa Ibom">Akwa Ibom</option>
+          <option value="Anambra">Anambra</option>
+          <option value="Bauchi">Bauchi</option>
+          <option value="Bayelsa">Bayelsa</option>
+          <option value="Benue">Benue</option>
+          <option value="Borno">Borno</option>
+          <option value="Cross River">Cross River</option>
+          <option value="Delta">Delta</option>
+          <option value="Ebonyi">Ebonyi</option>
+          <option value="Enugu">Enugu</option>
+          <option value="Edo">Edo</option>
+          <option value="Ekiti">Ekiti</option>
+          <option value="Gombe">Gombe</option>
+          <option value="Imo">Imo</option>
+          <option value="Jigawa">Jigawa</option>
+          <option value="Kano">Kano</option>
+          <option value="Kastina">Kastina</option>
+          <option value="Kaduna">Kaduna</option>
+          <option value="Kebbi">Kebbi</option>
+          <option value="Kogi">Kogi</option>
+          <option value="Kwara">Kwara</option>
+          <option value="Lagos">Lagos</option>
+          <option value="Nassarawa">Nassarawa</option>
+          <option value="Niger">Niger</option>
+          <option value="Ogun">Ogun</option>
+          <option value="Ondo">Ondo</option>
+          <option value="Osun">Osun</option>
+          <option value="Oyo">Oyo</option>
+          <option value="Plateau">Plateau</option>
+          <option value="Rivers">Rivers</option>
+          <option value="Sokoto">Sokoto</option>
+          <option value="Taraba">Taraba</option>
+          <option value="Yobe">Yobe</option>
+          <option value="Zamfara">Zamfara</option>
+          <option value="FCT">FCT</option>
+        </select>
+      </div>
+    </div>
+
+    <h4 class="text-primary mt-3">Price</h4>
+    <div class="form-row mb-4"> 
+      <div class="col-md-3">
+        <label for="price" class="">Price of property</label>
+        <input type="text" class="form-control" id="price" name="price">
+      </div>
+      <div class="col-md-3">
+          <label for="duration" class="">Duration</label>
+          <select id="duration" class="form-control" name="duration">
+            <option selected></option>
+            <option value="hour">Per Hour</option>
+            <option value="day">Per Day</option>
+            <option value="week">Per Week</option>
+            <option value="year">Per Year</option>
+          </select>
+        </div>
+    </div>
+
+    <h4 class="text-primary mt-3">Features</h4>
+    <div class="row mb-4"> 
+        <div class="col-md-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios1" value="New">
+                <label class="form-check-label" for="exampleRadios1">
+                  New
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios2" value="Old">
+                <label class="form-check-label" for="exampleRadios2">
+                  Old
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios3" value="Renovated" >
+                <label class="form-check-label" for="exampleRadios3">
+                  Renovated
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios1" value="Furnished">
+                <label class="form-check-label" for="exampleRadios1">
+                  Furnished
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios2" value="Serviced">
+                <label class="form-check-label" for="exampleRadios2">
+                  Serviced
+                </label>
+              </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="features" id="exampleRadios1" value="Gym">
+              <label class="form-check-label" for="exampleRadios1">
+                  Gym
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="features" id="exampleRadios2" value="Children Play Ground">
+              <label class="form-check-label" for="exampleRadios2">
+                Children Play Ground
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="features" id="exampleRadios3" value="Water Treatment" >
+              <label class="form-check-label" for="exampleRadios3">
+                  Water Treatment
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="features" id="exampleRadios1" value="Swimming Pool">
+              <label class="form-check-label" for="exampleRadios1">
+                  Swimming Pool
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="features" id="exampleRadios2" value="Supermarket Nearby">
+              <label class="form-check-label" for="exampleRadios2">
+                  Supermarket Nearby
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="features" id="exampleRadios3" value="Elevator" >
+              <label class="form-check-label" for="exampleRadios3">
+                  Elevator
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="features" id="exampleRadios1" value="Ocean View">
+              <label class="form-check-label" for="exampleRadios1">
+                  Ocean View
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="features" id="exampleRadios2" value="Mosques Nearby">
+              <label class="form-check-label" for="exampleRadios2">
+                  Mosques Nearby
+              </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios1" value="24 hours Electricity">
+                <label class="form-check-label" for="exampleRadios1">
+                  24 hours Electricity
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios2" value="All Room Ensuit">
+                <label class="form-check-label" for="exampleRadios2">
+                  All Room Ensuit
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios3" value="CCTV Cameras" >
+                <label class="form-check-label" for="exampleRadios3">
+                  CCTV Cameras
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios1" value="Parking Space">
+                <label class="form-check-label" for="exampleRadios1">
+                  Parking Space
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios2" value="POP Ceiling">
+                <label class="form-check-label" for="exampleRadios2">
+                  POP Ceiling
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios3" value="Elevator" >
+                <label class="form-check-label" for="exampleRadios3">
+                    Elevator
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="features" id="exampleRadios1" value="Church Nearby">
+                <label class="form-check-label" for="exampleRadios1">
+                  Church Nearby
+                </label>
+              </div>
+          </div>
+    </div>
+    <button type="submit" class="btn btn-lg btn-block btn-primary">Save</button>
+  </form>

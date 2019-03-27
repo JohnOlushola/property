@@ -14,7 +14,7 @@ test('should display an error when crendentials are incorect', async ({ browser 
 
   // When we fill and send the login form
   await page
-    .type('[name="username"]', 'romain.lanz')
+    .type('[name="email"]', 'johndoe@gmail.com')
     .type('[name="password"]', 'secret')
     .submitForm('form')
     .waitForNavigation()
@@ -25,8 +25,8 @@ test('should display an error when crendentials are incorect', async ({ browser 
   // And we expect to see an alert message
   await page.assertExists('div[role="alert"]')
 
-  // And to see the username filled
-  await page.assertValue('[name="username"]', 'romain.lanz')
+  // And to see the email filled
+  await page.assertValue('[name="email"]', 'johndoe@gmail.com')
 }).timeout(0)
 
 test('a user can log in inside the application', async ({ browser }) => {
@@ -38,7 +38,7 @@ test('a user can log in inside the application', async ({ browser }) => {
 
   // When we fill and send the login form
   await page
-    .type('[name="username"]', user.username)
+    .type('[name="email"]', user.email)
     .type('[name="password"]', 'secret')
     .submitForm('form')
     .waitForNavigation()

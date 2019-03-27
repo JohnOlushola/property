@@ -14,10 +14,19 @@
 const Factory = use('Factory')
 
 Factory.blueprint('App/Models/User', (faker, index, data) => {
+  // const defaultValue = {
+  //   fullname: faker.username(),
+  //   email: faker.email(),
+  //   phone: faker.phone(),
+  //   password: 'secret',
+  // }
+
   const defaultValue = {
-    username: faker.username(),
-    email: faker.email(),
+    fullname: "John Doe",
+    email: "johndoe@gmail.com",
+    phone: "0800002332",
     password: 'secret',
+    user_cat: 'user',
   }
 
   return Object.assign(defaultValue, data)

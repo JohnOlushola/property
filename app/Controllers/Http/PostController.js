@@ -1,6 +1,7 @@
 'use strict'
 
 const Post = use('App/Models/Post')
+const Database = use('Database')
 const { validateAll } = use('Validator')
 
 class PostController {
@@ -10,7 +11,13 @@ class PostController {
      *
      * ref: http://adonisjs.com/docs/4.1/lucid#_all
      */
-    const posts = await Post.all()
+    const users = 
+    await Database
+      .raw("select * from users WHERE userCat = 'agent' ORDER BY created_at DESC LIMIT 4")
+
+    const properties = 
+    await Database
+      .raw('select * from properties ORDER BY created_at DESC LIMIT 4')
 
     /**
      * Render the view 'posts.index'
@@ -18,7 +25,9 @@ class PostController {
      *
      * ref: http://adonisjs.com/docs/4.1/views
      */
-    return view.render('posts.index', { posts: posts.toJSON() })
+
+    return view.render('posts.index', { properties: properties[0], users: users[0] })
+
   }
 
   create ({ view }) {

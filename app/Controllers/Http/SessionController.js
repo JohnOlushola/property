@@ -19,7 +19,7 @@ class SessionController {
      *
      * ref: http://adonisjs.com/docs/4.0/request#_all
      */
-    const { username, password } = request.all()
+    const { email, password } = request.all()
 
     /**
      * Wrapping the authentication in order to
@@ -28,7 +28,7 @@ class SessionController {
      * ref: http://adonisjs.com/docs/4.1/authentication#_attempt_uid_password
      */
     try {
-      await auth.attempt(username, password)
+      await auth.attempt(email, password)
     } catch (e) {
       /**
        * Add flash message to the session with the content of
@@ -57,7 +57,7 @@ class SessionController {
     /**
      * We are authenticated.
      */
-    return response.redirect('/')
+    return response.redirect('/profile');
   }
 
   async delete ({ auth, response }) {

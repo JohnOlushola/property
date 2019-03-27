@@ -27,6 +27,7 @@
     "@adonisjs/vow": "^1.0.15",
     "@adonisjs/vow-browser": "^1.0.5",
     "adonis-bundler": "^1.0.1",
+    "mysql": "^2.16.0",
     "tailwindcss": "^0.6.1"
   },
   "devDependencies": {

@@ -25,6 +25,10 @@ Route.group(() => {
 
   Route.get('register', 'UserController.create')
   Route.post('register', 'UserController.store')
+
+
+  Route.post('property/search', 'PropertyController.search');
+  Route.get('property/category/:cat', 'PropertyController.category');
 }).middleware(['guest'])
 
 // Those routes should be only accessible
@@ -32,9 +36,21 @@ Route.group(() => {
 Route.group(() => {
   Route.get('logout', 'SessionController.delete')
 
-  Route.get('posts/create', 'PostController.create')
-  Route.post('posts', 'PostController.store')
-  Route.get('posts/:id/edit', 'PostController.edit')
-  Route.get('posts/:id/delete', 'PostController.delete')
-  Route.put('posts/:id', 'PostController.update')
+  // Route.get('posts/create', 'PostController.create')
+  // Route.post('posts', 'PostController.store')
+  // Route.get('posts/:id/edit', 'PostController.edit')
+  // Route.get('posts/:id/delete', 'PostController.delete')
+  // Route.put('posts/:id', 'PostController.update')
+
+  Route.get('property/create', 'PropertyController.create')
+  Route.post('property/create', 'PropertyController.store')
+  Route.get('property/:id/view', 'PropertyController.index')
+  Route.get('property/:id/edit', 'PropertyController.edit')
+  Route.get('property/:id/delete', 'PropertyController.delete')
+  Route.put('property/:id', 'PropertyController.update')
+  Route.get('property/category/:cat', 'PropertyController.category');
+  // Route.post('property/search', 'PropertyController.search');
+
+  Route.get('profile', 'UserController.profile')
+  Route.get('properties', 'UserController.properties')
 }).middleware(['auth'])
