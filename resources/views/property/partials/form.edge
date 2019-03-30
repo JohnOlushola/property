@@ -5,7 +5,7 @@
   ref: http://adonisjs.com/docs/4.0/csrf
   --}}
 {{ csrfField() }}
-<form  class="w-75" action="/property/create" method="POST">
+<form  class="w-100 mb-3" action="/property/create" method="POST">
     @if(flashMessage('error'))
       @component('components.alert', { type: 'danger', dismissible: true })
         {{ flashMessage('error') }}

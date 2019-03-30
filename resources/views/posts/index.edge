@@ -3,10 +3,10 @@
 @section('content')
   @set('title', 'Home')
 
-  <main role="main" class="inner cover text-center mt-5 rounded">
+<main role="main" class="cover text-center">
       <div class="landing mx-auto">
-          <h1 class="display-2">Find any Property</h1>
-          <p class="lead">Property is a one-stop destination for all categories of properties with simple, user-friendly and beautiful interface. Search, buy properties, or add your own properties, we've got you covered.</p>
+          <h1 class="display-3">Find any Property</h1>
+          <p class="lead">Search, buy properties, or add your own properties, we've got you covered.</p>
           
           <form class="lead mx-auto" action="/property/search" method="POST">
               <div class="input-group mt-5 mb-2">
@@ -35,9 +35,7 @@
               </div>
           </form>
 
-          <div class="cat-nav rounded">
-            <hr class="mt-5">
-
+          <div class="cat-nav py-2 rounded">
             <ul class="nav nav-pills nav-fill ">
               <li class="nav-item">
                 <a class="nav-link" href="/property/category/residential"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Residential</a>
@@ -52,19 +50,17 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Business</a>
               </li>
             </ul>
-  
-            <hr class="">
           </div>
       </div>
   </main>
 
   <h4 class="p-4 text-left home-h">Verified Agents<span class="float-right"><a href="#" class=""><small>View All</small></a></span></h4>
-  <div class="card-deck">
+  <div class="container card-deck">
     @each(user in users)
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{user.fullname}}</h5>
-          <p class="card-text">{{user.description}}. This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text">{{user.description}}</p>
           <p class="card-text"><small class="text-muted">{{user.email}}</small></p>
         </div>
       </div>
@@ -77,7 +73,7 @@
     <div class="card-deck">
         @each(property in properties)
         <div class="card" style="">
-          <img src="cover.jpg" class="card-img-top" height="250" alt="...">
+          <img src="cover.jpg" class="card-img-top" height="250" alt="{{property.propertyName}}">
           <div class="card-body">
           <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-info">{{property.price}}</span></a></h5>
           <p class="card-text">{{property.propertyDescription}}</p>

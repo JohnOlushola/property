@@ -1,14 +1,24 @@
-<div class="app-nav d-flex flex-column flex-md-row align-items-center p-4 px-md-4 mb-3 bg-dark text-white border-bottom shadow-sm">
-  <h4 class="my-0 mr-md-auto font-weight-normal"><span><img class="mb-2" src="/property.svg" alt="" width="24" height="24"></span><a href="/"> Property</a></h4>
+<div class="app-nav d-flex nav-scroller flex-column flex-md-row align-items-center p-3 px-md-4 bg-dark shadow-sm">
+  <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/"> Property</a></h4>
   <nav class="my-2 my-md-0 mr-md-3">
     @loggedIn
       <a class="p-2" href="#">For Rent</a>
       <a class="p-2" href="#">For Sale</a>
-      <a class="p-2 text-wrap" href="/profile">Your account</a>
-      <a class="btn btn-outline-secondary" href="/logout">Logout</a>
+      <a class="p-2 text-wrap" href="#">Explore Map</a>
+      <a class="p-2 btn btn-sm btn-light dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><img src="/user.svg" width="24" height="24"></span></a>
+      <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-item text-wrap text-dark bg-info" style="width: 6rem;">
+            Signed in as {{auth.user.fullname}}
+          </div>
+        <hr class="mb-0">
+      <a class="dropdown-item text-dark bg-info" href="/property/create">Add Property</a>
+        <a class="dropdown-item text-dark" href="/profile">Profile</a>
+        <a class="dropdown-item text-dark" href="/logout">Logout</a>
+      </div>
     @else
       <a class="p-2" href="#">For Rent</a>
       <a class="p-2" href="#">For Sale</a>
+      <a class="p-2" href="#">Explore Map</a>
       <a class="p-2" href="/login">Login</a>
       <a class="btn btn-primary" href="/register">Sign up</a>
     @endloggedIn
