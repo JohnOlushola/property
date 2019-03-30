@@ -1,4 +1,4 @@
-# Property :triangular_ruler:
+# Property
 
 This repo contains an the implementation of my final year project --A real estate system for decentralized sales and lease of properties. Built with the Adonis Framework. You can checkout the source code to learn more.
 
@@ -14,5 +14,4 @@ This repo contains an the implementation of my final year project --A real estat
 - Run `adonis migration:run` to setup the database
 - Run `npm run build:dev` to build static assets (preferably in another terminal tab/window)
 - Run `adonis serve --dev` to run the application
-# property
 
