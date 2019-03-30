@@ -34,3 +34,4 @@ This repo contains an example application of the Adonis Framework. You must chec
 - Run `npm run build:dev` to build static assets (preferably in another terminal tab/window)
 - Run `adonis serve --dev` to run the application
 # property
+# property
