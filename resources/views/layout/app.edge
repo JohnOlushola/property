@@ -12,14 +12,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    
     {{-- CSS --}}
     {{ style('/app.css') }}
-    {{--  {{ style('/card.css') }}  --}}
+    {{ style('/card.css') }}
   </head>
-  <body class="h-100">
+    <body class="h-100 {{bodyClass}}">
       @include('layout.partials.header')
       
-      <div class="app-container">
+      <div class="app-container {{appClass}}">
         @!section('content')
       </div>
 

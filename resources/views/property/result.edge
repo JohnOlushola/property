@@ -1,14 +1,19 @@
 @layout('layout.app')
 
 @section('content')
-  @set('title', 'Search Results')
-        @if(results.length > 0)
+    @set('title', 'Search Results')
+    @set('appClass', 'no-container')
+    @set('footerClass', 'mt-0')
+
+      @include('layout.partials.search-nav')
+      <div class="container mt-2">
+            @if(results.length > 0)
             <h1>Search results for "{{query}}"</h1>
             <hr>
             <h4 class="mt-2 p-2 text-left home-h">Results</h4>
             <div class="card-deck">
                 @each(result in results)
-                <div class="card" style="max-width: 18rem">
+                <div class="card mb-3" style="max-width: 18rem">
                     <img src="/cover.jpg" class="card-img-top" height="250" alt="...">
                     <div class="card-body">
                     <h5 class="card-title"><a href="/property/{{result.id}}/view">{{result.propertyName}}  <span class="badge badge-info">{{property.price}}</span></a></h5>
@@ -34,5 +39,6 @@
                 <p class="">We can't find any property that matches your preferences</p>
         </div>
         @endif
+      </div>
 
 @endsection

@@ -62,7 +62,7 @@ class PropertyController {
          */
         await Property.create(data)
 
-        return response.redirect('/properties')
+        return response.redirect('/user/properties');
     }
 
     async search({ request, view }) {
@@ -86,7 +86,6 @@ class PropertyController {
     }
 
     async category({ params, view }) {
-        console.log(params.cat);
 
         const properties = 
         await Database
@@ -99,6 +98,13 @@ class PropertyController {
         return view.render('property.category', {properties: properties, category: params.cat})
     }
 
+    async properties({ view }){
+        const properties = 
+        await Database.from('properties')
+
+        return view.render('property.all', {properties: properties})        
+    }
+ 
     async edit({ params, view }) {
         /**
          * Finding the property.

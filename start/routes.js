@@ -16,6 +16,11 @@
 const Route = use('Route')
 
 Route.get('/', 'PostController.index')
+Route.post('property/search', 'PropertyController.search');
+Route.get('property/category/:cat', 'PropertyController.category');
+Route.get('property/:id/view', 'PropertyController.index')
+Route.get('properties', 'PropertyController.properties')
+
 
 // Those routes should be only accessible
 // when you are not logged in
@@ -26,9 +31,6 @@ Route.group(() => {
   Route.get('register', 'UserController.create')
   Route.post('register', 'UserController.store')
 
-
-  Route.post('property/search', 'PropertyController.search');
-  Route.get('property/category/:cat', 'PropertyController.category');
 }).middleware(['guest'])
 
 // Those routes should be only accessible
@@ -48,9 +50,7 @@ Route.group(() => {
   Route.get('property/:id/edit', 'PropertyController.edit')
   Route.get('property/:id/delete', 'PropertyController.delete')
   Route.put('property/:id', 'PropertyController.update')
-  Route.get('property/category/:cat', 'PropertyController.category');
-  // Route.post('property/search', 'PropertyController.search');
 
-  Route.get('profile', 'UserController.profile')
-  Route.get('properties', 'UserController.properties')
+  Route.get('user/profile', 'UserController.profile')
+  Route.get('user/properties', 'UserController.profile')
 }).middleware(['auth'])

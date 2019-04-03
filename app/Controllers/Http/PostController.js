@@ -11,7 +11,7 @@ class PostController {
      *
      * ref: http://adonisjs.com/docs/4.1/lucid#_all
      */
-    const users = 
+    const agents = 
     await Database
       .raw("select * from users WHERE userCat = 'agent' ORDER BY created_at DESC LIMIT 4")
 
@@ -26,7 +26,7 @@ class PostController {
      * ref: http://adonisjs.com/docs/4.1/views
      */
 
-    return view.render('posts.index', { properties: properties[0], users: users[0] })
+    return view.render('posts.index', { properties: properties[0], agents: agents[0] })
 
   }
 

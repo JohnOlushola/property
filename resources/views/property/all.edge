@@ -1,0 +1,47 @@
+@layout('layout.app')
+
+@section('content')
+@set('title', 'Properties')
+@set('appClass', 'no-container')
+@set('footerClass', 'mt-0')
+
+    @include('layout.partials.search-nav')
+
+    <div class="container">
+        <div class="card-deck mt-3">
+            @each(property in properties)
+            <div class="card card-hover-sm mb-4 prp-all">
+                    <img src="cover.jpg" class="card-img-top" height="250" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-light">{{property.price}}</span></a></h5>
+                    <p class="card-text">{{property.propertyDescription}}</p>
+                    <p class="card-text text-danger m-0">For {{property.purpose}}</p>
+                    <p class="card-text"><small class="text-muted">{{property.address}}</small></p>
+                    </div>
+                    </div>
+            @endeach
+        </div>
+        <button onclick="viewMap()" class="btn btn-link mb-2">Toggle Map View</button>
+    </div>
+    
+    {{ script('/maps.js') }}
+
+    <script>
+        function viewMap() {
+        var x = document.getElementById("map");
+        if (x.style.display === "none") {
+        x.style.display = "block";
+        } else {
+        x.style.display = "none";
+        }
+    }
+    </script>
+
+    <div id="map" class="toggleMap" style="height: 600px;"></div>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0&callback=initMap">
+    </script>
+    </div>
+
+@endsection

@@ -2,68 +2,74 @@
 
 @section('content')
   @set('title', 'Home')
+  @set('title', '{{ property.address }}')
+  @set('appClass', 'no-container')
+  @set('footerClass', 'mt-0')
 
-  <h1>{{ property.propertyName }}</h1>
-  {{--  Properties  --}}
-  <div class="row mt-5">
-    <div class="col-md-8">
-        <div class="media">
-            <img src="/cover.jpg" width="300" height="300" class="align-self-start mr-3" alt="...">
-            <div class="media-body">
-              <h2 class="mt-0 mb-0">{{ property.propertyName }}</h2>
-              <p class="mb-0">{{property.propertyType}}</p>
-              <p class="mb-0">{{property.propertyDescription}}</p>
-              <p >{{property.user_id}}</p>
+      @include('layout.partials.search-nav')
 
-              <h5 class="text-muted">Address</h5>
-              <p class="mb-0">{{property.address}}</p>
-              <p class="">{{property.city}}, {{property.state}}.</p>
-
-              <h5 class="text-muted">Price</h5>
-              @if(property.purpose === 'Rent')
-                <p class="card-text text-danger m-0">For {{property.purpose}}</p>
-                <p class="mb-0 text-primary">{{ property.price }} per {{property.duration}}</p>                
-              @else
-                <p class="card-text text-danger m-0">For {{property.purpose}}</p>
-                <p class="mb-0 text-primary">{{ property.price }} <small>Negotiable</small></p>                
-              @endif
-              <hr>
-              <h5 class="text-muted">Features</h5>
-              <div class="row">
-                <div class="col-md-3">
-                  <ul class="list-unstyled">
-                    <li class="">{{ property.features }}</li>
-                    <li class="">4 Bedrooms</li>
-                    <li class="">5 Bath</li>
-                    <li class="">1 Living room</li>
-                    <li class="">Ocean View</li>
-                    <li class="">Pool</li>
-                    <li class="">Electric Fence</li>
-                    <li class="">CCTV Survillance System</li>
-                    <li class="">Automated gate</li>
-                  </ul>
-                </div>
-                <div class="col-md-3">
-                  <ul class="list-unstyled">
-                    <li class="">{{ property.features }}</li>
-                    <li class="">Gym</li>
-                    <li class="">Estate Security</li>
-                    <li class="">Front Desk</li>
-                  </ul>
-                </div>
-              </div>
-                
+      <div class="container mb-3">
+          <h1>{{ property.propertyName }}</h1>
+          {{--  Properties  --}}
+          <div class="row">
+            <div class="col-md-8">
+                <div class="media">
+                    <img src="/cover.jpg" width="150" height="150" class="align-self-start mr-3 img-responsive" alt="{{ property.propertyName }}">
+                    <div class="media-body">
+                      <h2 class="mt-0 mb-0">{{ property.address }}</h2>
+                      <p class="mb-0">{{property.propertyType}}</p>
+                      <p class="mb-0">{{property.propertyDescription}}</p>
+                      <p >{{property.user_id}}</p>
+        
+                      <h5 class="text-muted">Address</h5>
+                      <p class="mb-0">{{property.address}}</p>
+                      <p class="">{{property.city}}, {{property.state}}.</p>
+        
+                      <h5 class="text-muted">Price</h5>
+                      @if(property.purpose === 'Rent')
+                        <p class="card-text text-danger m-0">For {{property.purpose}}</p>
+                        <p class="mb-0 text-primary">{{ property.price }} per {{property.duration}}</p>                
+                      @else
+                        <p class="card-text text-danger m-0">For {{property.purpose}}</p>
+                        <p class="mb-0 text-primary">{{ property.price }} <small>Negotiable</small></p>                
+                      @endif
+                      <hr>
+                      <h5 class="text-muted">Features</h5>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <ul class="list-unstyled">
+                            <li class="">{{ property.features }}</li>
+                            <li class="">4 Bedrooms</li>
+                            <li class="">5 Bath</li>
+                            <li class="">1 Living room</li>
+                            <li class="">Ocean View</li>
+                            <li class="">Pool</li>
+                            <li class="">Electric Fence</li>
+                            <li class="">CCTV Survillance System</li>
+                            <li class="">Automated gate</li>
+                          </ul>
+                        </div>
+                        <div class="col-md-3">
+                          <ul class="list-unstyled">
+                            <li class="">{{ property.features }}</li>
+                            <li class="">Gym</li>
+                            <li class="">Estate Security</li>
+                            <li class="">Front Desk</li>
+                          </ul>
+                        </div>
+                      </div>
+                        
+                    </div>
+                  </div>
             </div>
+            <div class="col-md-4">
+                <div id="map" style="height: 600px;"></div>
+                {{ script('/maps.js') }}
+                <script async defer
+                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0&callback=initMap">
+                    </script>
+              </div>
           </div>
-    </div>
-    <div class="col-md-4">
-        <div id="map" style="height: 600px;"></div>
-        {{--  <iframe width="100%" height="600" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJy4cQ6-4NOxAR6JxAUS_YZ64&key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0" allowfullscreen></iframe>  --}}
-        {{ script('/maps.js') }}
-        <script async defer
-              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0&callback=initMap">
-            </script>
       </div>
-  </div>
   
 @endsection

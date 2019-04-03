@@ -57,7 +57,7 @@ class SessionController {
     /**
      * We are authenticated.
      */
-    return response.redirect('/profile');
+    return response.redirect('/user/profile');
   }
 
   async delete ({ auth, response }) {

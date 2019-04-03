@@ -1,12 +1,10 @@
 @layout('layout.app')
 
 @section('content')
-  @set('title', 'Add a Property')
+  @set('title', 'Properties')
   @set('listing', 'active')
 
-  <div class="row">
-        @include('layout.partials.dash-nav')
-        <div class="col-md-9 ml-sm-auto col-lg-9 px-4">
+        <div class="px-4 my-auto">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Listings</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
@@ -30,7 +28,6 @@
                 @endeach
             </div>
         </div>
-  </div>
 
   
 @endsection

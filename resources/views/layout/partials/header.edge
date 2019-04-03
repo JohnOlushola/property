@@ -1,26 +1,25 @@
-<div class="app-nav d-flex nav-scroller flex-column flex-md-row align-items-center p-3 px-md-4 bg-dark shadow-sm">
-  <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/"> Property</a></h4>
+<div class="app-nav sticky-top d-flex flex-column flex-md-row align-items-center py-3 bg-dark shadow-sm">
+  <h4 class="my-0 mr-md-auto font-weight-normal brand-link"><a href="/"> Property</a></h4>
   <nav class="my-2 my-md-0 mr-md-3">
     @loggedIn
-      <a class="p-2" href="#">For Rent</a>
-      <a class="p-2" href="#">For Sale</a>
-      <a class="p-2 text-wrap" href="#">Explore Map</a>
-      <a class="p-2 btn btn-sm btn-light dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><img src="/user.svg" width="24" height="24"></span></a>
+      <a class="m-3" href="/properties">Properties</a>
+      <a class="m-3" href="#">Agents</a>
+      <a class="m-3" href="#">Explore Map</a>
+      <a class="btn btn-sm btn-outline-secondary dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><img src="/user.svg" width="24" height="24"></span></a>
       <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <div class="dropdown-item text-wrap text-dark bg-info" style="width: 6rem;">
-            Signed in as {{auth.user.fullname}}
-          </div>
+        <p class="dropdown-item text-wrap">Signed in as {{auth.user.fullname}}</p>
         <hr class="mb-0">
-      <a class="dropdown-item text-dark bg-info" href="/property/create">Add Property</a>
-        <a class="dropdown-item text-dark" href="/profile">Profile</a>
-        <a class="dropdown-item text-dark" href="/logout">Logout</a>
+        <a class="dropdown-item text-dark" href="/property/create">Add Property</a>
+        <a class="dropdown-item text-dark" href="/user/properties">Your Listings</a>
+        <a class="dropdown-item text-dark" href="/user/profile">Profile</a>
+        <a class="dropdown-item text-dark" href="/logout">Sign Out</a>
       </div>
     @else
-      <a class="p-2" href="#">For Rent</a>
-      <a class="p-2" href="#">For Sale</a>
-      <a class="p-2" href="#">Explore Map</a>
+      <a class="p-2" href="/properties">Properties</a>
+      <a class="m-2" href="#">Agents</a>
+      <a class="p-2 disabled" href="" aria-disabled="true">Explore Map</a>
       <a class="p-2" href="/login">Login</a>
-      <a class="btn btn-primary" href="/register">Sign up</a>
+      <a class="btn btn-outline-secondary" href="/register">Sign up</a>
     @endloggedIn
   </nav>
 </div>

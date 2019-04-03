@@ -2,6 +2,8 @@
 
 @section('content')
   @set('title', 'Home')
+  @set('appClass', 'no-container bg-gray')  
+  @set('footerClass', 'mt-0')  
 
 <main role="main" class="cover text-center">
       <div class="landing mx-auto">
@@ -9,84 +11,80 @@
           <p class="lead">Search, buy properties, or add your own properties, we've got you covered.</p>
           
           <form class="lead mx-auto" action="/property/search" method="POST">
-              <div class="input-group mt-5 mb-2">
-                <input type="text" class="form-control p-3" placeholder="Search for a property" aria-label="Property name, type or address" aria-describedby="button-addon4" name="query">
+              <div class="input-group mt-5 mb-2 justify-content-center">
+                <input type="text" class="form-control p-2" style="max-width: 600px;" placeholder="Search for a property" aria-label="Property name, type or address" aria-describedby="button-addon4" name="query">
                 <div class="input-group-append">
                   <button class="btn btn-primary" type="submit">Search</button>
                 </div>
               </div>
-              <div class="input-group float-right">
-                <div class="input-group-prepend">
-                  <select class="form-control mr-3" name="type" id="inputGroupSelect01">
-                    <option>Commercial</option>
-                    <option>Residential</option>
-                  </select>
+              <div class="input-group mt-4 justify-content-center">
+                  <div class="input-group-prepend">
+                    <select class="form-control mr-3" name="type" id="inputGroupSelect01">
+                      <option>Commercial</option>
+                      <option>Residential</option>
+                    </select>
+                  </div>
+      
+                  <div class="input-group-append">
+                    <select class="form-control" name="maxPrice" id="inputGroupSelect02">
+                      <option value="300000">300,000</option>
+                      <option value="500000">500,000</option>
+                      <option value="1000000">1,000,000</option>
+                      <option value="5000000">5,000,000</option>
+                      <option value="max">Max</option>
+                    </select>
+                  </div>
                 </div>
-
-                <div class="input-group-append">
-                  <select class="form-control" name="maxPrice" id="inputGroupSelect02">
-                    <option value="300000">300,000</option>
-                    <option value="500000">500,000</option>
-                    <option value="1000000">1,000,000</option>
-                    <option value="5000000">5,000,000</option>
-                    <option value="max">Max</option>
-                  </select>
-                </div>
-              </div>
           </form>
 
-          <div class="cat-nav py-2 rounded">
-            <ul class="nav nav-pills nav-fill ">
-              <li class="nav-item">
-                <a class="nav-link" href="/property/category/residential"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Residential</a>
+          <div class="cat-nav mx-auto">
+            <ul class="nav nav-pills nav-fill">
+              <li class="nav-item bg-hover-green">
+                <a class="nav-link text-dark" href="/property/category/residential"><span><img class="mb-2 mr-2" src="property.svg" alt="" width="20" height="20"></span> Residential</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/property/category/commercial"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Commercial</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" aria-disabled="true"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Luxury</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><span><img class="mb-2" src="property.svg" alt="" width="24" height="24"></span> Business</a>
+              <li class="nav-item bg-hover-green">
+                <a class="nav-link text-dark" href="/property/category/commercial"><span><img class="mb-2 mr-2" src="property.svg" alt="" width="20" height="20"></span> Commercial</a>
               </li>
             </ul>
           </div>
       </div>
-  </main>
+</main>
 
-  <h4 class="p-4 text-left home-h">Verified Agents<span class="float-right"><a href="#" class=""><small>View All</small></a></span></h4>
-  <div class="container card-deck">
-    @each(user in users)
-      <div class="card">
+<div class="container">
+  <h4 class="text-left mt-5 home-h">Verified Agents<span class="float-right"><a href="#" class=""><small>View All</small></a></span></h4>
+  <div class="card-deck">
+    @each(agent in agents)
+      <div class="card card-green">
         <div class="card-body">
-          <h5 class="card-title">{{user.fullname}}</h5>
-          <p class="card-text">{{user.description}}</p>
-          <p class="card-text"><small class="text-muted">{{user.email}}</small></p>
+          <h5 class="card-title">{{agent.fullname}}</h5>
+          <p class="card-text mb-0">{{agent.description}}</p>
+          <p class="card-text mt-0"><small class="text-info">{{agent.email}}</small></p>
         </div>
       </div>
     @endeach
   </div>
-
   {{--  Properties  --}}
-  <div class="container mt-2">
-    <h4 class="mt-5 p-4 text-left home-h">Recent Listings<span class="float-right"><a href="#" class=""><small>View All</small></a></span></h4>
-    <div class="card-deck">
-        @each(property in properties)
-        <div class="card" style="">
-          <img src="cover.jpg" class="card-img-top" height="250" alt="{{property.propertyName}}">
-          <div class="card-body">
-          <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-info">{{property.price}}</span></a></h5>
-          <p class="card-text">{{property.propertyDescription}}</p>
-          <p class="card-text text-danger m-0">For {{property.purpose}}</p>
-          <p class="card-text"><small class="text-muted">{{property.address}}</small></p>
+  <div class="mt-5">
+      <h4 class="text-left home-h">Recent Listings<span class="float-right"><a href="/properties" class=""><small>View All</small></a></span></h4>
+      <div class="card-deck">
+          @each(property in properties)
+          <div class="card card-hover">
+            <img src="cover.jpg" class="card-img-top" height="250" alt="{{property.propertyName}}">
+            <div class="card-body">
+            <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-light font-weight-normal">{{property.price}}</span></a></h5>
+            <hr>
+            <p class="card-text">{{property.propertyDescription}}</p>
+            <p class="card-text text-danger m-0">For {{property.purpose}}</p>
+            <p class="card-text"><small class="text-muted">{{property.address}}</small></p>
+            </div>
           </div>
-        </div>
-        @endeach
+          @endeach
+      </div>
     </div>
-  </div>
+</div>
 
-  <h4 class="mt-5 p-2 text-left home-h">Properties around you</h4>
-  <div id="map" style="height: 600px;"></div>
+  <h4 class="container mt-5 p-2 text-left home-h">Properties around you</h4>
+  <div id="map" style="height: 600px;"></div> 
   {{--  <iframe width="100%" height="600" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJy4cQ6-4NOxAR6JxAUS_YZ64&key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0" allowfullscreen></iframe>  --}}
   {{ script('/maps.js') }}
   <script async defer
