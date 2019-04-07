@@ -6,7 +6,7 @@
 
         <div class="px-4 my-auto">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Listings</h1>
+            <h1 class="h2">Your Listings</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                 <span data-feather="calendar"></span>
@@ -16,10 +16,11 @@
             </div>
             <div class="card-deck">
                 @each(property in properties)
-                <div class="card" style="max-width: 18rem">
-                        <img src="cover.jpg" class="card-img-top" height="250" alt="...">
+                <div class="card mb-2">
+                        <img src="/cover.jpg" class="card-img-top" height="250" alt="...">
                         <div class="card-body">
-                        <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-info">{{property.price}}</span></a></h5>
+                        <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-light">{{property.price}}</span></a></h5>
+                        <hr>
                         <p class="card-text">{{property.propertyDescription}}</p>
                         <p class="card-text text-danger m-0">For {{property.purpose}}</p>
                         <p class="card-text"><small class="text-muted">{{property.address}}</small></p>

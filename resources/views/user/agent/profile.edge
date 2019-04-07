@@ -1,0 +1,24 @@
+@layout('layout.app')
+
+@section('content')
+@set('title', '{{agent.id}}')
+@set('appClass', 'no-container')
+
+@include('layout.partials.search-nav')
+
+<div class="container mt-3">
+    <h1 class="text-green">{{agent.fullname}}</h1>
+    <p>{{agent.description}}</p>
+
+    <div class="mt-5">
+        <h2><img src="/property.svg" width="40" height="40"> Properties</h2>
+    </div>
+
+    <hr>
+    <div class="mt-5">
+        <h2>Contact</h2>
+        <p class="mb-0">{{agent.phone}}
+        <p>{{agent.email}}
+    </div>
+</div>
+@endsection

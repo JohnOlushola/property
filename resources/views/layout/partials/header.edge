@@ -1,10 +1,10 @@
 <div class="app-nav sticky-top d-flex flex-column flex-md-row align-items-center py-3 bg-dark shadow-sm">
   <h4 class="my-0 mr-md-auto font-weight-normal brand-link"><a href="/"> Property</a></h4>
-  <nav class="my-2 my-md-0 mr-md-3">
+  <nav class="my-2 my-md-0 mr-md-3 nav-linksb">
     @loggedIn
-      <a class="m-3" href="/properties">Properties</a>
-      <a class="m-3" href="#">Agents</a>
-      <a class="m-3" href="#">Explore Map</a>
+      <a class="mr-3" href="/properties">Properties</a>
+      <a class="mr-3" href="/agents">Agents</a>
+      <a class="mr-3" href="#">Explore Map</a>
       <a class="btn btn-sm btn-outline-secondary dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><img src="/user.svg" width="24" height="24"></span></a>
       <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <p class="dropdown-item text-wrap">Signed in as {{auth.user.fullname}}</p>
@@ -15,11 +15,11 @@
         <a class="dropdown-item text-dark" href="/logout">Sign Out</a>
       </div>
     @else
-      <a class="p-2" href="/properties">Properties</a>
-      <a class="m-2" href="#">Agents</a>
-      <a class="p-2 disabled" href="" aria-disabled="true">Explore Map</a>
-      <a class="p-2" href="/login">Login</a>
-      <a class="btn btn-outline-secondary" href="/register">Sign up</a>
+      <a class="m-2" href="/properties">Properties</a>
+      <a class="mr-2" href="/agents">Agents</a>
+      <a class="mr-2 disabled" href="" aria-disabled="true">Explore Map</a>
+      <a class="mr-2" href="/login">Login</a>
+      <a class="btn btn-outline-secondary m-view" href="/register">Sign up</a>
     @endloggedIn
   </nav>
 </div>

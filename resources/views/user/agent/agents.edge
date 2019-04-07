@@ -1,0 +1,25 @@
+@layout('layout.app')
+
+@section('content')
+@set('title', '{{agent.id}}')
+@set('appClass', 'no-container')
+
+@include('layout.partials.search-nav')
+
+
+<div class="container">
+    <h4 class="mt-3">Agents</h4>
+    <div class="card-deck mt-3">
+        @each(agent in agents)
+        <div class="card card-green">
+            <div class="card-body">
+            <h5 class="card-title"><a href="/agent/{{agent.id}}">{{agent.fullname}}</a></h5>
+            <p class="card-text mb-0">{{agent.description}}</p>
+            <p class="card-text mt-0"><small class="">{{agent.email}}</small></p>
+            </div>
+        </div>
+        @endeach
+    </div>
+</div>
+
+@endsection

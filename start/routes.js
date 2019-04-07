@@ -21,6 +21,9 @@ Route.get('property/category/:cat', 'PropertyController.category');
 Route.get('property/:id/view', 'PropertyController.index')
 Route.get('properties', 'PropertyController.properties')
 
+Route.get('agents', 'UserController.agents');
+Route.get('agent/:id', 'UserController.agentProfile');
+
 
 // Those routes should be only accessible
 // when you are not logged in
@@ -52,5 +55,5 @@ Route.group(() => {
   Route.put('property/:id', 'PropertyController.update')
 
   Route.get('user/profile', 'UserController.profile')
-  Route.get('user/properties', 'UserController.profile')
+  Route.get('user/properties', 'UserController.properties')
 }).middleware(['auth'])

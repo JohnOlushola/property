@@ -2,21 +2,24 @@
 
 @section('content')
 @set('title', 'Categories')
+@set('appClass', 'no-container')
 
-    <h1 class="h2 capitalise">{{category}} Properties</h1>
-    <hr class="mb-2">
-
-    <div class="card-deck property">
-        @each(property in properties)
-        <div class="card card-hover mb-4">
-            <img src="/cover.jpg" class="card-img-top" height="250" alt="{{property.propertyName}}">
-            <div class="card-body">
-            <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-light font-weight-normal">{{property.price}}</span></a></h5>
-            <p class="card-text">{{property.propertyDescription}}</p>
-            <p class="card-text text-danger m-0">For {{property.purpose}}</p>
-            <p class="card-text"><small class="text-muted">{{property.address}}</small></p>
+    <div class="container">
+        <h1 class="h2 capitalise mt-3">{{category}} Properties</h1>
+        <hr class="mb-3">
+    
+        <div class="card-deck property">
+            @each(property in properties)
+            <div class="card card-hover mb-4">
+                <img src="/cover.jpg" class="card-img-top" height="250" alt="{{property.propertyName}}">
+                <div class="card-body">
+                <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-light font-weight-normal">{{property.price}}</span></a></h5>
+                <p class="card-text">{{property.propertyDescription}}</p>
+                <p class="card-text text-danger m-0">For {{property.purpose}}</p>
+                <p class="card-text"><small class="text-muted">{{property.address}}</small></p>
+                </div>
             </div>
+            @endeach
         </div>
-        @endeach
     </div>
 @endsection

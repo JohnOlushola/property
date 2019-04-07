@@ -18,7 +18,6 @@ class UserController {
     /**
      * Getting needed parameters.
      *
-     * ref: http://adonisjs.com/docs/4.1/request#_only
      */
     const data = request.only(['fullname', 'email', 'password', 'password_confirmation', 'phone', 'userCat', 'bvn'])
 
@@ -59,7 +58,7 @@ class UserController {
     // Authenticate the user
     await auth.login(user)
 
-    return response.redirect('/profile')
+    return response.redirect('/')
   }
 
   profile ({ view }) {
@@ -72,14 +71,32 @@ class UserController {
   }
 
   async properties({ view, auth }){
-    const user = await auth.getUser()
-
+    let user = auth.user;
     const properties = 
     await Database
       .table('properties')
       .where('user_id', user.email)
 
     return view.render('user.properties', { properties: properties })
+  }
+
+  async agents({ view }){
+    const agents = 
+    await Database
+    .table('users')
+    .where('userCat', 'agent');
+
+    return view.render('user.agent.agents', { agents: agents });
+  }
+
+  async agentProfile({ params, view }){
+    // return number of properties handled
+    /**
+     * Fetch all property inside our database.
+     */
+    const agent = await User.findOrFail(params.id)
+        
+    return view.render('user.agent.profile', { agent: agent });
   }
 }
 

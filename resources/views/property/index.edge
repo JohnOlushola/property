@@ -9,14 +9,14 @@
       @include('layout.partials.search-nav')
 
       <div class="container mb-3">
-          <h1>{{ property.propertyName }}</h1>
+          <h1 class="my-3">{{ property.address }}</h1>
           {{--  Properties  --}}
           <div class="row">
             <div class="col-md-8">
                 <div class="media">
                     <img src="/cover.jpg" width="150" height="150" class="align-self-start mr-3 img-responsive" alt="{{ property.propertyName }}">
                     <div class="media-body">
-                      <h2 class="mt-0 mb-0">{{ property.address }}</h2>
+                      <h2 class="mt-0 mb-0">{{ property.propertyName }}</h2>
                       <p class="mb-0">{{property.propertyType}}</p>
                       <p class="mb-0">{{property.propertyDescription}}</p>
                       <p >{{property.user_id}}</p>
