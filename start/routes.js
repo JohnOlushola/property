@@ -20,10 +20,10 @@ Route.post('property/search', 'PropertyController.search');
 Route.get('property/category/:cat', 'PropertyController.category');
 Route.get('property/:id/view', 'PropertyController.index')
 Route.get('properties', 'PropertyController.properties')
+Route.get('explore', 'PropertyController.explore');
 
 Route.get('agents', 'UserController.agents');
 Route.get('agent/:id', 'UserController.agentProfile');
-
 
 // Those routes should be only accessible
 // when you are not logged in

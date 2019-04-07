@@ -1,0 +1,15 @@
+@layout('layout.app')
+
+@section('content')
+@set('title', 'Properties')
+@set('appClass', 'no-container')
+    @include('layout.partials.search-nav')
+
+    <div id="map"></div>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0&callback=initMap">
+    </script>
+    </div>
+
+@endsection

@@ -104,6 +104,11 @@ class PropertyController {
 
         return view.render('property.all', {properties: properties})        
     }
+
+    async explore({ view }){
+
+        return view.render('property.explore')        
+    }
  
     async edit({ params, view }) {
         /**
