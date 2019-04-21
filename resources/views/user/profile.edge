@@ -16,14 +16,14 @@
               </div>
             </div>
 
-            <div class="bg-secondary text-white p-5 rounded mb-4">
+            <div class="bg-app text-white p-5 rounded">
                 <img src="/user.svg" width="150" height="150" class="float-right mb-2">
-                <h1 class="">{{auth.user.fullname}} <span class="badge badge-primary"><small>{{auth.user.userCat}}</small></span></h1>
+                <h1 class="">{{auth.user.fullname}} <span class="badge badge-app" style="text-transform: capitalize;"><small>{{auth.user.userCat}}</small></span></h1>
                 <p class="mb-0">{{auth.user.phone}}</p>
                 <p>Email: {{auth.user.email}}</p>
             </div>
 
-            <div class="bg-light p-5 rounded mb-4">
+            <div class="p-5 mb-4">
                 <h2>Business Information</h2>
                 <p class="mb-0">Business Name: {{auth.user.fullname}}</p>
                 <p class="mb-0">Description: {{auth.user.description}}</p>

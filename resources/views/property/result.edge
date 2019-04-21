@@ -16,7 +16,8 @@
                 <div class="card mb-3" style="max-width: 18rem">
                     <img src="/cover.jpg" class="card-img-top" height="250" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title"><a href="/property/{{result.id}}/view">{{result.propertyName}}  <span class="badge badge-info">{{property.price}}</span></a></h5>
+                    <h5 class="card-title"><a href="/property/{{result.id}}/view">{{result.propertyName}}  <span class="badge badge-light">{{result.price}}</span></a></h5>
+                    <hr>
                     <p class="card-text">{{result.propertyDescription}}</p>
                     <p class="card-text text-danger m-0">For {{result.purpose}}</p>
                     <p class="card-text"><small class="text-muted">{{result.address}}</small></p>
@@ -24,15 +25,28 @@
                     </div>
                 @endeach
             </div>
+            <button onclick="viewMap()" class="btn btn-link mb-2">Map Results</button>
 
-            <h4 class="mt-5 p-2 text-left home-h">Map results</h4>
-            <div id="map" style="height: 600px;"></div>
             {{ script('/maps.js') }}
+
+            <script>
+                function viewMap() {
+                var x = document.getElementById("map");
+                if (x.style.display === "block") {
+                x.style.display = "none";
+                } else {
+                x.style.display = "block";
+                }
+            }
+            </script>
+
+            <div id="map" class="toogle-map"></div>
+
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0&callback=initMap">
-                </script>
+            </script>
         @else
-        <div class="jumbotron">
+        <div class="jumbotron mt-4">
                 <h1 class="display-3">Uh!!</h1>
                 <hr>
                 <h5 class="display-4">No results found for "{{query}}"</h5>

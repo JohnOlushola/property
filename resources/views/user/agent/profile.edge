@@ -12,6 +12,26 @@
 
     <div class="mt-5">
         <h2><img src="/property.svg" width="40" height="40"> Properties</h2>
+        @if(properties.length > 0)
+            <div class="mt-5">
+                <div class="card-deck">
+                    @each(property in properties)
+                    <div class="card card-hover mb-2">
+                    <img src="/cover.jpg" class="card-img-top" height="250" alt="{{property.propertyName}}">
+                    <div class="card-body">
+                    <h5 class="card-title"><a href="/property/{{property.id}}/view">{{property.propertyName}} <span class="badge badge-light font-weight-normal">{{property.price}}</span></a></h5>
+                    <hr>
+                    <p class="card-text">{{property.propertyDescription}}</p>
+                    <p class="card-text text-danger m-0">For {{property.purpose}}</p>
+                    <p class="card-text"><small class="text-muted">{{property.address}}</small></p>
+                    </div>
+                    </div>
+                    @endeach
+                </div>
+            </div>
+        @else
+          <p>{{agent.fullname}} has no property listing</p>
+        @endif
     </div>
 
     <hr>

@@ -74,7 +74,7 @@ class PropertyController {
         await Database
         // .raw('select * from properties where propertyName = ? ')
         .from('properties')
-        .whereRaw('propertyName = ? AND propertyType LIKE ? OR price <= ?', [query, type, maxPrice])
+        .whereRaw('propertyName LIKE ?', [query])
 
         // const result =
         // await Database

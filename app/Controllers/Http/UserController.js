@@ -91,12 +91,18 @@ class UserController {
 
   async agentProfile({ params, view }){
     // return number of properties handled
+    const properties = 
+    await Database
+      .table('properties')
+      .where('user_id', params.email)
+
     /**
-     * Fetch all property inside our database.
+     * Fetch all agents inside our database.
      */
     const agent = await User.findOrFail(params.id)
+    console.log(properties);
         
-    return view.render('user.agent.profile', { agent: agent });
+    return view.render('user.agent.profile', { agent: agent, properties: properties });
   }
 }
 

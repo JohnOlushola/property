@@ -2,7 +2,7 @@
 
 @section('content')
   @set('title', 'Home')
-  @set('title', '{{ property.address }}')
+  @set('title', "property.address")
   @set('appClass', 'no-container')
   @set('footerClass', 'mt-0')
 
@@ -21,16 +21,15 @@
                       <p class="mb-0">{{property.propertyDescription}}</p>
                       <p >{{property.user_id}}</p>
         
-                      <h5 class="text-muted">Address</h5>
+                      <h5 class="text-muted mb-0">Address</h5>
                       <p class="mb-0">{{property.address}}</p>
                       <p class="">{{property.city}}, {{property.state}}.</p>
         
-                      <h5 class="text-muted">Price</h5>
+                      <h5 class="text-muted mb-0">Price</h5>
+                      <p class="card-text text-danger m-0">For {{property.purpose}}</p>
                       @if(property.purpose === 'Rent')
-                        <p class="card-text text-danger m-0">For {{property.purpose}}</p>
                         <p class="mb-0 text-primary">{{ property.price }} per {{property.duration}}</p>                
                       @else
-                        <p class="card-text text-danger m-0">For {{property.purpose}}</p>
                         <p class="mb-0 text-primary">{{ property.price }} <small>Negotiable</small></p>                
                       @endif
                       <hr>
@@ -61,6 +60,11 @@
                         
                     </div>
                   </div>
+                  @if(property.purpose === 'Sale')
+                    <a class="btn btn-lg btn-primary not-rounded float-right" href="#">Buy Property</a>
+                  @else
+                    <a class="btn btn-lg btn-primary not-rounded float-right" href="#">{{property.purpose}} Property</a>
+                  @endif
             </div>
             <div class="col-md-4">
                 <div id="map" style="height: 600px;"></div>

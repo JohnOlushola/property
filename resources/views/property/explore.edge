@@ -1,15 +1,16 @@
 @layout('layout.app')
 
 @section('content')
-@set('title', 'Properties')
+@set('title', 'Explore')
 @set('appClass', 'no-container')
+@set('footerClass', 'mt-0')
     @include('layout.partials.search-nav')
 
-    <div id="map"></div>
+    <div id="map" style="min-height: auto;"></div> 
 
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0&callback=initMap">
-    </script>
-    </div>
+  {{ script('/maps.js') }}
+  <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4jLiCYsuOw6IoB6MISNJ3pslSuqSAiR0&callback=initMap">
+      </script>
 
 @endsection
