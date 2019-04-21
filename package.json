@@ -11,7 +11,7 @@
     "build:prod": "adonis bundle --production"
   },
   "engines": {
-      "node": "8.5.0"
+    "node": "8.5.0"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -31,7 +31,8 @@
     "@adonisjs/vow-browser": "^1.0.5",
     "adonis-bundler": "^1.0.1",
     "mysql": "^2.16.0",
-    "tailwindcss": "^0.6.1"
+    "tailwindcss": "^0.6.1",
+    "url-parse": "^1.4.6"
   },
   "devDependencies": {
     "less": "^3.0.4",
