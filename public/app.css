@@ -1,0 +1,671 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: 'Raleway', sans-serif;
+}
+
+#map{
+  height: 600px;
+}
+
+.toogle-map{
+  display: none;
+  transition: 0.3s;
+}
+
+a{
+  color: #1a6d2d;
+}
+
+a:hover{
+  color: #269f42 !important;
+  text-decoration: none;
+}
+
+.bg-app{
+  background-color: #28a745!important; 
+ }
+
+ .bg-app-light{
+  background-color: #27a0438f!important; 
+ }
+
+.bg-hover-green:hover{
+  background-color: #269f42;
+  background-image: linear-gradient(-180deg,#2fcb53,#269f42 90%);
+  color: #fff !important; 
+}
+
+.badge-app{
+  background-color: #103619!important; 
+}
+
+.capitalise{
+  text-transform: capitalize;
+}
+
+.app-nav{
+  padding: 0 6rem;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.app-nav a{
+  color: #fff;
+}
+
+.nav-dropdown-menu{
+  width: 100px;
+  font-size: .85rem;
+}
+
+.form-control:focus {
+  outline: 0;
+  box-shadow: initial;
+}
+
+.lead .input-group-search{
+  /* border-bottom: 2px solid #fff; */
+  border-radius: 0;
+  background: transparent;
+  min-width: 10rem;
+  max-width: 35rem;
+}
+
+.lead button{
+  /* background: none; */
+  border: none;
+  border-radius: 0;
+  padding: .65rem;
+  font-size: 1.15rem;
+}
+
+.lead button:hover{
+  /* background: none; */
+  border-radius: 0;
+  border: none !important;
+}
+
+.lead-cat{
+  margin-top: 3rem;
+  max-width: 400px;
+}
+
+.lead-cat .btn{
+  border-radius: .25rem;
+}
+
+.lead-cat .btn:hover{
+
+}
+
+/*
+ * bg-dark 
+ */
+
+.bg-dark {
+  background-color: #131B23!important;
+}
+
+
+.bg-gray {
+  background-color: #f6f8fa!important;
+}
+
+/*
+ * Button 
+ */
+ .btn{
+  border-radius: 1rem;
+  padding: 0.275rem .75rem;
+ }
+
+ .btn-primary{
+   background-color: #28a745;
+   border-color: #28a745;
+ }
+
+.btn-primary:hover {
+  background-color: #269f42;
+  /* background-image: linear-gradient(-180deg,#2fcb53,#269f42 90%); */
+  border: 1px solid #28a745 !important;
+  border-color: #28a745;
+  background-position: -.5em;
+}
+
+.btn-primary:active {
+  background-color: #269f42;
+  border: 1px solid #28a745 !important;
+}
+
+  .btn-outline-primary{
+    border-color: #28a745;
+  }
+
+ .btn-outline-primary:hover{
+  background-color: #28a745;
+  border-color: #28a745;
+ }
+
+ .btn-outline-secondary:hover{
+  background-color: rgba(0, 0, 0, 0.267);
+ }
+
+ .btn-app{
+   background: #12b6c2;
+ }
+
+ .btn-outline-app{
+  border-color: #12b6c2;
+}
+
+.not-rounded{
+  border-radius: 0;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .2rem #28a745;
+}
+
+/*
+ * Card
+ */
+ .card{
+  max-height: 500px;
+ }
+
+ .card-img-top{
+ }
+
+ .card-body{
+
+ }
+
+ .card-hover{
+  transition: 0.3s;
+ }
+
+ .card-hover-sm:hover{
+  box-shadow: 0 .4rem 3rem rgba(0,0,0,.175)!important;
+ }
+
+ .card-hover:hover{
+  opacity: .97;
+  box-shadow: 0 .8rem 3rem rgba(0,0,0,.175)!important;
+ }
+
+ .card-green{
+  /* background: #498649; */
+  /* color: #fff; */
+  transition: 0.2s;
+  opacity: 1;
+ }
+
+ .card-green:hover{
+  border: 1px solid #498649;
+ }
+
+ .card-green .card-title{
+  color: #000;
+ }
+
+ .card-green:hover .card-title{
+  font-weight: 500;
+  color: #498649;
+ }
+
+ /*
+ * hr
+ */
+
+ .h-hr{
+  height: .2rem;
+  background: rgb(90, 90, 90);
+ }
+
+/*
+ * Sidebar
+ */
+ .dash{
+  left: 0;
+ }
+
+.sidebar .nav-item{
+  border: 2px red;
+}
+
+.dash-nav{
+  font-size: 16px;
+  font-weight: 200;
+  padding: .5rem;
+  color: #fff;
+}
+
+.dash-nav:active{
+  background-color: #4d90fe;
+}
+
+/*
+ * Container
+ */
+
+ .no-container{
+   padding: 0 !important;
+ }
+
+ .app-container{
+  padding: 0 5rem;
+ }
+
+ .container{
+  max-width: 1278px;
+ }
+
+/*
+ * Cover
+ */
+ .cover {
+  background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%),url("/main-min.jpg");
+  height: auto; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  background-attachment: fixed;
+  padding: 10rem 4.5rem 12rem 4.5rem;
+  margin-top: -3rem;
+  /* border-bottom: 3px solid #28a745 !important; */
+  color: #fff;
+}
+
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+
+/*
+ * Nav
+ */
+
+.search-nav{
+  margin-top: -3rem;
+}
+
+.search input[type=search]{
+  width: 500px;
+}
+
+.text-green{
+  color: #269f42;
+}
+
+/*
+ * Home headings
+ */
+ .home-h{
+   font-weight: 200;
+   /* text-transform: uppercase; */
+ }
+
+ /*
+ * Form 
+ */
+ .auth-form{
+  margin: 0 auto;
+  margin-bottom: 10rem;
+  width: 300px;
+  padding: 1.7rem .45rem;
+  /* border: 1px #000000; */
+ }
+
+ .bg-reg{
+  background:linear-gradient( rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5)100%),url("/res-sky.jpg");
+  height: auto; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  /* width: 300px; */
+  padding: 1.7rem .45rem;
+  border: 1px #000000;
+ }
+
+ /*
+ * Autocomplete
+ */
+
+ #description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  /* font-weight: 300; */
+  /* margin-left: 12px; */
+  /* padding: 0 11px 0 13px; */
+  text-overflow: ellipsis;
+  /* width: 400px; */
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+#target {
+  width: 345px;
+}
+
+/*
+ * Footer
+ */
+
+ footer{
+  margin-top: 5rem;
+ }
+
+footer a{
+  color: rgba(255,255,255,.5) !important;
+}
+
+footer a:hover{
+  color: #fff;
+}
+
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .app-container{
+      padding: 0;
+    }
+
+    .app-nav{
+      margin-bottom: 0;
+      padding: 0 .05rem;
+    }
+
+    .app-nav .m-view{
+      margin: auto; 
+    }
+
+    .search-nav{
+      margin-top: 0;
+    }
+
+    .search input[type=search]{
+      max-width: 18rem;
+    }
+
+    .cover{
+      padding: 1.5rem 0.5rem;
+      border-radius: 0!important;
+      background-attachment: scroll;
+    }
+
+    .bg-reg{
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+    }
+
+    .prp-all{
+      margin: 0 1rem;
+    }
+
+    footer{
+      margin-top : 0;
+    }
+
+    .auth-form{
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .lead .input-group-search{
+      width: 300px;
+    }
+
+    .nav-links a{
+      margin-right: .5rem !important;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .app-container{
+      padding: 0;
+    }
+
+    .app-nav{
+      margin-bottom: 0;
+      padding: 0 .05rem;
+    }
+
+    .search-nav{
+      margin-top: 0;
+    }
+
+    .search input[type=search]{
+      max-width: 100px;
+    }
+
+    .cover{
+      padding: 6.5rem 3.5rem;
+      border-radius: 0!important;
+      background-attachment: scroll;
+    }
+
+    .bg-reg{
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+    }
+
+    .prp-all{
+      margin: 0 1rem;
+    }
+
+    footer{
+      margin-top : 0;
+    }
+
+    .auth-form{
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .lead .input-group-search{
+      width: 300px;
+    }
+
+    .nav-links a{
+      margin-right: 10px !important;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    .search input[type=search]{
+      max-width: 400px;
+    }
+
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    .nav-links a{
+      margin-right: 10px !important;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    .search input[type=search]{
+      max-width: 400px;
+    }
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    .nav-links{
+      font-size: .85rem;
+    }
+
+    .lead input[type=search]{
+      padding: .5rem;
+      max-width: 10.5rem;
+    }
+
+    .search input[type=search]{
+      min-width: 21.5rem;
+    }
+
+    .lead-cat .btn{
+      min-width: 5rem;
+      margin-bottom: 1rem;
+      padding-right: .6rem !important;
+      padding-left: .6rem !important;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+}
