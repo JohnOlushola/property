@@ -2,9 +2,7 @@
 
 This repo contains an the implementation of a real estate system for decentralized sales and lease of properties. Built with the Adonis Framework. Checkout the source code to learn more.
 
-<br />
 <hr />
-<br />
 
 ## How to run
 
