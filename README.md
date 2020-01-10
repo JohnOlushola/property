@@ -1,6 +1,6 @@
 # Property
 
-This repo contains an the implementation of my final year project --A real estate system for decentralized sales and lease of properties. Built with the Adonis Framework. You can checkout the source code to learn more.
+This repo contains an the implementation of a real estate system for decentralized sales and lease of properties. Built with the Adonis Framework. Checkout the source code to learn more.
 
 <br />
 <hr />
