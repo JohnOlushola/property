@@ -1,10 +1,24 @@
-'use strict'
+"use strict";
 
-const Env = use('Env')
-const Helpers = use('Helpers')
+const Env = use("Env");
+const Helpers = use("Helpers");
 
-const Url = require('url-parse')
-const CLEARDB_DATABASE_URL = new Url(Env.get('CLEARDB_DATABASE_URL'))
+const Url = require("url-parse");
+const CLEARDB_DATABASE_URL = new Url(Env.get("CLEARDB_DATABASE_URL"));
+const isProduction = Env.get("NODE_ENV") === "production";
+
+const DB_HOST =
+  Env.get("DB_HOST", isProduction && CLEARDB_DATABASE_URL.hostname) ||
+  "127.0.0.1";
+
+const DB_PORT =
+  Env.get("DB_PORT", isProduction && CLEARDB_DATABASE_URL.hostname) || "3306";
+
+const DB_USER =
+  Env.get("DB_USER", isProduction && CLEARDB_DATABASE_URL.hostname) || "root";
+
+const DB_PASSWORD =
+  Env.get("DB_USER", isProduction && CLEARDB_DATABASE_URL.hostname) || "root";
 
 module.exports = {
   /*
@@ -16,7 +30,7 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'mysql'),
+  connection: Env.get("DB_CONNECTION", "mysql"),
 
   /*
   |--------------------------------------------------------------------------
@@ -30,11 +44,13 @@ module.exports = {
   |
   */
   sqlite: {
-    client: 'sqlite3',
+    client: "sqlite3",
     connection: {
-      filename: Helpers.databasePath(Env.get('DB_FILENAME', 'development.sqlite'))
+      filename: Helpers.databasePath(
+        Env.get("DB_FILENAME", "development.sqlite")
+      ),
     },
-    useNullAsDefault: true
+    useNullAsDefault: true,
   },
 
   /*
@@ -48,14 +64,14 @@ module.exports = {
   |
   */
   mysql: {
-    client: 'mysql',
+    client: "mysql",
     connection: {
-      host: Env.get('DB_HOST', CLEARDB_DATABASE_URL.hostname),
-      port: Env.get('DB_PORT', ''),
-      user: Env.get('DB_USER', CLEARDB_DATABASE_URL.username),
-      password: Env.get('DB_PASSWORD', CLEARDB_DATABASE_URL.password),
-      database: Env.get('DB_DATABASE', CLEARDB_DATABASE_URL.pathname.substr(1))
-    }
+      host: DB_HOST,
+      port: DB_PORT,
+      user: DB_USER,
+      password: DB_PASSWORD,
+      database: "property",
+    },
   },
 
   /*
@@ -69,13 +85,13 @@ module.exports = {
   |
   */
   pg: {
-    client: 'pg',
+    client: "pg",
     connection: {
-      host: Env.get('DB_HOST', 'localhost'),
-      port: Env.get('DB_PORT', ''),
-      user: Env.get('DB_USER', 'root'),
-      password: Env.get('DB_PASSWORD', ''),
-      database: Env.get('DB_DATABASE', 'adonis')
-    }
-  }
-}
+      host: Env.get("DB_HOST", "localhost"),
+      port: Env.get("DB_PORT", ""),
+      user: Env.get("DB_USER", "root"),
+      password: Env.get("DB_PASSWORD", ""),
+      database: Env.get("DB_DATABASE", "adonis"),
+    },
+  },
+};
